@@ -1,0 +1,30 @@
+{
+  "name": "podcast-generator",
+  "version": "0.1.0",
+  "private": "false",
+  "scripts": {
+    "build": "tsc",
+    "codecheck": "concurrently 'yarn:check-prettier' 'yarn:typecheck'",
+    "check-prettier": "yarn prettier -c src",
+    "fix-prettier": "yarn prettier -c src --write",
+    "test": "jest",
+    "typecheck": "tsc --noEmit && yarn tsc --noEmit -p tsconfig.json",
+    "verify": "yarn && yarn build && yarn typecheck && yarn check-prettier "
+  },
+  "dependencies": {
+    "xmlbuilder2": "^3.1.1",
+    "yaml": "^2.7.0",
+    "tslib": "^2.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "typescript": "^5.5.4",
+    "@tsconfig/node20": "^20.1.4",
+    "concurrently": "^9.1.2",
+    "prettier": "^3.4.2",
+    "ts-node": "^10.9.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
