@@ -14,4 +14,4 @@ COPY entrypoint.sh /entrypoint.sh
 
 LABEL authors="janet"
 
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
