@@ -7,6 +7,8 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 node -v
 npm -v
 cd /home/node/app/ || exit
+echo "Listing files in current directory"
+ls -als
 echo "install project dependencies and build project"
 npm install
 npm run build

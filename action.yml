@@ -16,3 +16,11 @@ inputs:
     description: "The commiters name"
     required: true
     default: "${{ github.actor }}"
+  xmlFile:
+    description: "The output xml file"
+    required: true
+    default: "feed.xml"
+  ymlFile:
+    description: "The YAML file to be converted"
+    required: true
+    default: "feed.yaml"
