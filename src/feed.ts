@@ -68,9 +68,9 @@ const ChannelItemFields: {
   },
 ]
 
-function createFeed() {
-  const xmlFile: string = 'feed.xml'
-  const yamlFile: string = 'feed.yaml'
+function createFeed(xmlFile: string, yamlFile: string) {
+  //const xmlFile: string = 'feed.xml'
+  //const yamlFile: string = 'feed.yaml'
   console.log(`Reading yaml file from ${yamlFile}`)
   const root = buildRootObject()
   const rss = buildRssObject(root)
@@ -153,5 +153,5 @@ function isString(value: unknown): value is string {
   return typeof value === 'string'
 }
 
-
-createFeed()
+const [, , xmlFile, yamlFile] = process.argv
+createFeed(xmlFile, yamlFile)

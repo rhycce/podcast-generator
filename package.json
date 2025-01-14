@@ -1,7 +1,9 @@
 {
-  "name": "podcast-generator",
+  "name": "rhycce-podcast-generator",
   "version": "0.1.0",
   "private": "false",
+  "description": "Podcast feed xml generator",
+  "license": "MIT",
   "scripts": {
     "build": "tsc",
     "codecheck": "concurrently 'yarn:check-prettier' 'yarn:typecheck'",

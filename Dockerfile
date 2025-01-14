@@ -1,17 +1,17 @@
 FROM ubuntu:latest
+ARG xmlFile=feed.xml
+ARG yamlFile=feed.yml
 
-RUN apt-get update
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-RUN install node
-RUN apt-get -y git
-RUN node -v
-RUN npm -v
+RUN apt-get update && apt-get -y \
+    git
 
-COPY src/feed.ts /usr/bin/feed.ts
-COPY src/xmlHandler.ts /usr/bin/xmlHandler.ts
-COPY src/yamlHandler.ts /usr/bin/xmlHandler.ts
-COPY entrypoint.sh /entrypoint.sh
+RUN mkdir -p /home/node/app/node_modules
 
-LABEL authors="janet"
+COPY src/* /home/node/app/
+COPY package*.json /home/node/app/
+COPY tsconfig.json /home/node/app/
+COPY entrypoint.sh /home/node/app/
 
-ENTRYPOINT ["/entrypoint.sh"]
+LABEL authors="rhycce"
+
+ENTRYPOINT ["/entrypoint.sh", "$xmlFile", "$yamlFile"]
