@@ -1,16 +1,11 @@
-FROM ubuntu:latest
+FROM node:latest
 ARG xmlFile=feed.xml
 ARG yamlFile=feed.yml
-
-RUN apt-get update && apt-get -y install git
-
-RUN mkdir -p /home/node/app/node_modules
-
-COPY src/* /home/node/app/
-COPY package*.json /home/node/app/
-COPY tsconfig.json /home/node/app/
-COPY entrypoint.sh /home/node/app/
-
+WORKDIR /home/node/app
+COPY package*.json /
+RUN npm i
+COPY . .
+RUN npm run build
 LABEL authors="rhycce"
 
-ENTRYPOINT ["/home/node/app/entrypoint.sh", "$xmlFile", "$yamlFile"]
+ENTRYPOINT ["node", "/home/node/app/entrypoint.sh", "$xmlFile", "$yamlFile"]
