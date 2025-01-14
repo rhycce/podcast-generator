@@ -8,4 +8,4 @@ COPY . .
 RUN npm run build
 LABEL authors="rhycce"
 
-ENTRYPOINT ["node", "/home/node/app/entrypoint.sh", "$xmlFile", "$yamlFile"]
+ENTRYPOINT ["node", "/home/node/app/dist/feed", "$xmlFile", "$yamlFile"]
