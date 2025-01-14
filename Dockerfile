@@ -2,8 +2,7 @@ FROM ubuntu:latest
 ARG xmlFile=feed.xml
 ARG yamlFile=feed.yml
 
-RUN apt-get update && apt-get -y \
-    git
+RUN apt-get update && apt-get -y git
 
 RUN mkdir -p /home/node/app/node_modules
 
