@@ -13,4 +13,4 @@ COPY entrypoint.sh /home/node/app/
 
 LABEL authors="rhycce"
 
-ENTRYPOINT ["/entrypoint.sh", "$xmlFile", "$yamlFile"]
+ENTRYPOINT ["/home/node/app/entrypoint.sh", "$xmlFile", "$yamlFile"]
